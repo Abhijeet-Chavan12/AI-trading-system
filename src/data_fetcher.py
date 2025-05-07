@@ -1,5 +1,6 @@
 import yfinance as yf
 import pandas as pd
+import time
 from datetime import datetime, timedelta
 
 class NSEDataFetcher:
@@ -31,10 +32,11 @@ class NSEDataFetcher:
             return None
 
     def fetch_multiple_stocks(self, period='1y', interval='1d'):
-        """Fetch data for multiple stocks"""
+        """Fetch data for multiple stocks with a delay to avoid rate limiting"""
         data = {}
         for ticker in self.nifty50_tickers:
             data[ticker] = self.fetch_data(ticker, period, interval)
+            time.sleep(1)  # Add 1-second delay between API calls
         return data
 
     def get_latest_data(self, ticker):
