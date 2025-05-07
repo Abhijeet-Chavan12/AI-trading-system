@@ -13,10 +13,10 @@ from reportlab.pdfgen import canvas
 src_path = Path(__file__).parent / 'src'
 sys.path.append(str(src_path))
 
-from data_fetcher import NSEDataFetcher
-from indicators import TechnicalIndicators
-from model import TradingModel
-from backtest import Backtester
+from src.data_fetcher import NSEDataFetcher
+from src.indicators import TechnicalIndicators
+from src.model import TradingModel
+from src.backtest import Backtester
 
 st.title("📊 AI-Driven Trading and Sentiment analysis system")
 
