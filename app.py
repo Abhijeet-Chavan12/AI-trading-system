@@ -10,6 +10,8 @@ from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 
 # Add src directory to Python path
+from pathlib import Path
+import sys
 src_path = Path(__file__).parent / 'src'
 sys.path.append(str(src_path))
 
