@@ -1,7 +1,6 @@
 import yfinance as yf
 import pandas as pd
-import time
-from datetime import datetime, timedelta
+import time  # Required for adding delays
 
 class NSEDataFetcher:
     def __init__(self):
@@ -36,7 +35,7 @@ class NSEDataFetcher:
         data = {}
         for ticker in self.nifty50_tickers:
             data[ticker] = self.fetch_data(ticker, period, interval)
-            time.sleep(1)  # Add 1-second delay between API calls
+            time.sleep(5)  # Add a 5-second delay between API calls to avoid rate limiting
         return data
 
     def get_latest_data(self, ticker):
